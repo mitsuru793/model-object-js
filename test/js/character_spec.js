@@ -48,7 +48,6 @@
       });
       return describe('status writable', function() {
         beforeEach(function() {
-          console.log("before");
           this.characters = [];
           this.characters.push(new Character(this.characterStatus));
           return this.characters.push(new Character(this.characterStatus, 'taro'));
@@ -68,7 +67,6 @@
         });
         it('is writable default and arg3 is true', function() {
           var character, i, len, ref, results;
-          console.log("aaa");
           this.characters.push(new Character(this.characterStatus, 'taro', true));
           ref = this.characters;
           results = [];

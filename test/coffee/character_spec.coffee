@@ -30,7 +30,6 @@ describe 'character', ->
 
     describe 'status writable', ->
       beforeEach(->
-        console.log "before"
         @characters = []
         @characters.push(new Character(@characterStatus))
         @characters.push(new Character(@characterStatus, 'taro'))
@@ -44,7 +43,6 @@ describe 'character', ->
           expect(character.mp).toBe(3)
 
       it 'is writable default and arg3 is true', ->
-        console.log "aaa"
         @characters.push(new Character(@characterStatus, 'taro', true))
         for character in @characters
           character.level = 3
