@@ -45,20 +45,30 @@ describe 'model', ->
         expect(model.hp.glow).toBe(5)
 
   describe '#fSnakeToCamel', ->
-    it 'convert snake case into camel case', ->
+    it 'convert a snake case into a camel case', ->
       # [input, expected]
       patterns = [
         ['foo_bar', 'fooBar']
         ['foobar', 'foobar']
-        ['_foo_bar', '_fooBar']
         ['FooBar_piyo', 'fooBarPiyo']
-        ['_FooBar_piyo', '_fooBarPiyo']
         ['foo__Bar', 'fooBar']
       ]
       model = new Model
       for pattern in patterns
         actual = model.fSnakeToCamel(pattern[0])
         expect(actual).toBe(pattern[1], pattern)
+
+    it 'leaves a prifix under score', ->
+      # [input, expected]
+      patterns = [
+        ['_foo_bar', '_fooBar']
+        ['_FooBar_piyo', '_fooBarPiyo']
+      ]
+      model = new Model
+      for pattern in patterns
+        actual = model.fSnakeToCamel(pattern[0])
+        expect(actual).toBe(pattern[1], pattern)
+
     it 'convert prifix successive under score into a one', ->
       # [input, expected]
       patterns = [
