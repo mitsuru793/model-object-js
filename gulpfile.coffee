@@ -49,7 +49,7 @@ gulp.task 'js:bundle', ->
       .pipe source('bundle.js')
       .pipe buffer()
       .pipe $.uglify()
-      .pipe $.rename "#{mainJsName}.min.js"
+      .pipe $.rename "object_model.min.js"
       .pipe gulp.dest("#{destPath}/js/")
   bundler.on 'update', bundle
   bundle()

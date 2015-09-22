@@ -2,14 +2,15 @@ exports = window
 class exports.Model
   constructor: (record, writable=true) ->
     properties = {}
+    @columnNames = []
     for column, columnValue of record
       camelKey = @fSnakeToCamel(column)
+      @columnNames.push(camelKey)
       @deepFreeze(columnValue) if not writable
       properties[camelKey] = {
         value: columnValue
         writable: writable
       }
-
     Object.defineProperties(@, properties)
 
   fSnakeToCamel: (string) ->

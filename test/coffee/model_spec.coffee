@@ -1,21 +1,23 @@
 describe 'model', ->
-  describe 'constructor', ->
-    record = {
+  beforeEach(->
+    @record = {
       'name': 'taro'
       'first_name': 'yamada'
       '_Age_when_child': 18
       'first_second_three_fourFive': 3
     }
+  )
+  describe 'constructor', ->
     describe 'when no options', ->
       it 'defines property', ->
-        model = new Model(record)
+        model = new Model(@record)
         expect(model.name).toBe('taro')
         expect(model.firstName).toBe('yamada')
         expect(model._ageWhenChild).toBe(18)
         expect(model.firstSecondThreeFourFive).toBe(3)
 
       it 'defines writable property', ->
-        model = new Model(record)
+        model = new Model(@record)
         model.name = 'ziro'
         expect(model.name).toBe('ziro')
         model.firstName = 'suzuki'
@@ -25,9 +27,14 @@ describe 'model', ->
         model.firstSecondThreeFourFive = -1
         expect(model.firstSecondThreeFourFive).toBe(-1)
 
+      it 'defines columnNames', ->
+        model = new Model(@record)
+        actual = model.columnNames
+        expect(actual).toEqual(['name', 'firstName', '_ageWhenChild', 'firstSecondThreeFourFive'])
+
     describe 'when option writable is false', ->
       it 'defines not writeable property', ->
-        model = new Model(record, false)
+        model = new Model(@record, false)
         model.name = 'ziro'
         expect(model.name).toBe('taro')
         model.firstName = 'suzuki'
@@ -79,5 +86,3 @@ describe 'model', ->
         actual = model.fSnakeToCamel(pattern[0])
         expect(actual).toBe(pattern[1], pattern)
 
-  describe '#columns', ->
-    it 'returns columns of record given to constructor'
