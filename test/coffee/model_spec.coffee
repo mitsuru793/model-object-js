@@ -57,3 +57,5 @@ describe 'model', ->
     for pattern in patterns
       actual = model.fSnakeToCamel(pattern[0])
       expect(actual).toBe(pattern[1], pattern)
+  describe '#columns', ->
+    it 'returns columns of record given to constructor'
