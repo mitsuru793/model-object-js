@@ -28,6 +28,14 @@ describe 'character', ->
           expect(character.hp).toBe(20 + (5 * 2))
           expect(character.mp).toBe(3 + (2 * 2))
 
+      it 'defines columnNames', ->
+        for character in @characters
+          expect(character.columnNames).toEqual(['_hp', '_mp'])
+
+      it 'defines statusNames', ->
+        for character in @characters
+          expect(character.statusNames).toEqual(['hp', 'mp'])
+
     describe 'status writable', ->
       beforeEach(->
         @characters = []

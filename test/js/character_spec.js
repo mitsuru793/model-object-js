@@ -33,7 +33,7 @@
           }
           return results;
         });
-        return it('defines current status property with all kyes of an argument', function() {
+        it('defines current status property with all kyes of an argument', function() {
           var character, i, len, ref, results;
           ref = this.characters;
           results = [];
@@ -42,6 +42,26 @@
             character.level = 3;
             expect(character.hp).toBe(20 + (5 * 2));
             results.push(expect(character.mp).toBe(3 + (2 * 2)));
+          }
+          return results;
+        });
+        it('defines columnNames', function() {
+          var character, i, len, ref, results;
+          ref = this.characters;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            character = ref[i];
+            results.push(expect(character.columnNames).toEqual(['_hp', '_mp']));
+          }
+          return results;
+        });
+        return it('defines statusNames', function() {
+          var character, i, len, ref, results;
+          ref = this.characters;
+          results = [];
+          for (i = 0, len = ref.length; i < len; i++) {
+            character = ref[i];
+            results.push(expect(character.statusNames).toEqual(['hp', 'mp']));
           }
           return results;
         });
