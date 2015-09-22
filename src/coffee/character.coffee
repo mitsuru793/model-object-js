@@ -23,7 +23,6 @@ class exports.Character extends Model
             getStatus.call(@, statusSettig)
         }
     Object.defineProperties(@, properties)
-    console.log @statusNames
 
   getStatus = (status) ->
     if status is undefined
