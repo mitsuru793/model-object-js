@@ -5,7 +5,7 @@
   "authors": [
     "mitsuru <mitsuru793@gmail.com>"
   ],
-  "main": "dist/js/object_model.js",
+  "main": "dist/js/object_model.min.js",
   "license": "MIT",
   "ignore": [
     "**/.*",
